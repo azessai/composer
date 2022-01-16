@@ -1,0 +1,6 @@
+{
+    "name": "az/az",
+    "require": {
+	"league/commonmark": "^0.4 || ^1.0"
+    }
+}
