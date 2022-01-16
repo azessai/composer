@@ -11,6 +11,7 @@ node{
 
     stage('Test image') {
         docker.image('azeddine/composer').withRun('-v $PWD:/app ') { c ->
+            sh 'ls'
             sh 'docker ps'
 	}
     }
