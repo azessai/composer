@@ -9,8 +9,14 @@ node{
         app = docker.build("azeddine/composer")
     }
 
+    // stage('Test image') {
+    //     docker.image('azeddine/composer').withRun('-v $PWD:/app --name bidon') { c ->
+    //         sh 'docker ps'
+    //         sh 'docker run --rm --volume $PWD:/app azeddine/composer install'
+	//     }
+    // }
     stage('Test image') {
-        docker.image('azeddine/composer').withRun('-v $PWD:/app --name bidon') { c ->
+        steps {
             sh 'docker ps'
             sh 'docker run --rm --volume $PWD:/app azeddine/composer install'
 	    }
