@@ -9,19 +9,19 @@ node{
         app = docker.build("azeddine/composer")
     }
 
-    stage('Test image') {
-        docker.image('azeddine/composer').withRun('-v $PWD:/app --name bidon') { c ->
-            sh 'docker ps'
-            sh 'docker run --rm --volume $PWD:/app azeddine/composer /bin/sh -c "cd app; composer install"'
-	    }
-    }
     // stage('Test image') {
-
-    //     sh 'docker ps'
-    //     sh 'pwd'
-    //     sh 'ls -l'
-    //     sh 'docker run --rm -v $PWD:/app azeddine/composer /bin/sh -c "pwd; cd /app;  ls -l"'
-    //     sh 'docker run --rm -v $PWD:/app azeddine/composer /bin/sh -c "cd app; composer install"'
+    //     docker.image('azeddine/composer').withRun('-v $PWD:/app --name bidon') { c ->
+    //         sh 'docker ps'
+    //         sh 'docker run --rm --volume $PWD:/app azeddine/composer install'
+	//     }
     // }
+    stage('Test image') {
+
+        // sh 'docker ps'
+        // sh 'pwd'
+        // sh 'ls -l'
+        sh 'docker run --rm -v $PWD:/app azeddine/composer /bin/sh -c "pwd; cd /app;  ls -l; rm -rf vendor; ls -l"'
+        sh 'docker run --rm -v $PWD:/app azeddine/composer /bin/sh -c "cd app; composer install"'
+    }
 }
 
