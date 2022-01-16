@@ -20,8 +20,8 @@ node{
         sh 'docker ps'
         sh 'pwd'
         sh 'ls -l'
-        sh 'docker run --rm -v $PWD:/app azeddine/composer /bin/sh -c "pwd; ls -l"'
-        sh 'docker run --rm -v $PWD:/app azeddine/composer /bin/sh -c "composer install"'
+        sh 'docker run --rm -v $PWD:/app azeddine/composer /bin/sh -c "pwd; cd /app;  ls -l"'
+        sh 'docker run --rm -v $PWD:/app azeddine/composer /bin/sh -c "cd app; composer install"'
     }
 }
 
