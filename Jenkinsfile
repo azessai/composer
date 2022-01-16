@@ -18,6 +18,9 @@ node{
     stage('Test image') {
 
         sh 'docker ps'
+        sh 'pwd'
+        sh 'ls -l'
+        sh 'docker run --rm -v $PWD:/app azeddine/composer /bin/sh -c "pwd; ls -l"'
         sh 'docker run --rm -v $PWD:/app azeddine/composer /bin/sh -c "composer install"'
     }
 }
