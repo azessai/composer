@@ -10,9 +10,9 @@ node{
     }
 
     stage('Test image') {
-        docker.image('azeddine/composer').withRun('-v $PWD:/app --name composer') { c ->
-            sh 'ls'
+        docker.image('azeddine/composer').withRun('-v $PWD:/app --name bidon') { c ->
             sh 'docker ps'
+            sh 'ls'
 	    }
     }
 }
