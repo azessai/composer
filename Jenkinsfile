@@ -16,7 +16,7 @@ node{
 	//     }
     // }
     stage('Test image') {
-        steps {
+        script {
             sh 'docker ps'
             sh 'docker run --rm --volume $PWD:/app azeddine/composer install'
 	    }
