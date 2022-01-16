@@ -12,7 +12,7 @@ node{
     stage('Test image') {
         docker.image('azeddine/composer').withRun('-v $PWD:/app --name bidon') { c ->
             sh 'docker ps'
-            sh 'ls'
+            sh 'docker run --rm azeddine/composer install'
 	    }
     }
 }
